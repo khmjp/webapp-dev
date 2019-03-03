@@ -25,11 +25,11 @@
     choco install kubernetes-cli
 
 ### Minikube環境の起動
-1. minikubeを起動する。
+minikubeを起動する。
 
     minikube start
 
-1. 起動を確認する。
+起動を確認する。
 
     kubectl cluster-info
     kubectl get node
@@ -37,11 +37,11 @@
 
 ### サービス起動
 
-1. webappを起動
+webappを起動
 
     kubectl apply -f webapp-deployment.yml
 
-1. 接続確認
+接続確認
 
     minikube service webapp
 
