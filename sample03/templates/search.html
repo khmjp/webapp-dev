@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+       <meta charset="utf-8">
+       <title>webapp_flask_elasticsearch</title>
+   </head>
+    <body>
+      <h1>Search for Account Details</h1>
+      <form action="{{ url_for('search') }}" method="POST">
+        Account Number:
+        <input type="text" name="account_number">
+        <input type="submit" value="Submit">
+      </form>
+      <table border="1">
+          <thead>
+              <tr>
+                  <th>account_number</th>
+                  <th>balance</th>
+                  <th>firstname</th>
+                  <th>lastname</th>
+                  <th>age</th>
+                  <th>gender</th>
+                  <th>address</th>
+                  <th>employer</th>
+                  <th>email</th>
+                  <th>city</th>
+                  <th>state</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for hit in search_results %}
+              <tr>
+                  <td>{{ hit.account_number }}</td>
+                  <td>{{ hit.balance }}</td>
+                  <td>{{ hit.firstname }}</td>
+                  <td>{{ hit.lastname }}</td>
+                  <td>{{ hit.age }}</td>
+                  <td>{{ hit.gender }}</td>
+                  <td>{{ hit.address }}</td>
+                  <td>{{ hit.employer }}</td>
+                  <td>{{ hit.email }}</td>
+                  <td>{{ hit.city }}</td>
+                  <td>{{ hit.state }}</td>
+              </tr>
+              {% else %}
+                  <td>No account found.</td>
+              {% endfor %}
+          </tbody>
+      </table>
+    </body>
+</html>
